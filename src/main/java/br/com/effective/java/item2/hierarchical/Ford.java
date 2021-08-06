@@ -23,9 +23,8 @@ public class Ford extends Car{
     public static class Builder extends Car.Builder<Builder> {
         private final Color color;
 
-        public Builder(Color size, String name) {
+        public Builder(Color size) {
             this.color = Objects.requireNonNull(size);
-            this.name = name;
         }
 
         @Override public Ford build() {

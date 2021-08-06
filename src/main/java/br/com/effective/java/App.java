@@ -23,8 +23,8 @@ public class App {
     private static void runItem2() throws JsonProcessingException {
         NutritionFacts cocaCola = new NutritionFacts.Builder(240,8).fat(2).calories(100).sodium(35).carbohydrate(27).build();
         System.out.println(cocaCola);
-        Ford fiesta = new Ford.Builder(Ford.Color.BLACK, "Fiesta").addType(Car.Type.SUV).build();
-        Ford fiestaSedan = new Ford.Builder(Ford.Color.BLACK, "Fiesta Sedan").addType(Car.Type.SEDAN).build();
+        Ford fiesta = new Ford.Builder(Ford.Color.BLACK).withName("Fiesta").addType(Car.Type.SUV).build();
+        Ford fiestaSedan = new Ford.Builder(Ford.Color.BLACK).withName("Fiesta Sedan").addType(Car.Type.SEDAN).build();
 
         System.out.println(fiesta);
         System.out.println(fiestaSedan);

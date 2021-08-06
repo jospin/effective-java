@@ -30,6 +30,11 @@ public abstract class Car {
             return self();
         }
 
+        public T withName(String name) {
+            this.name = name;
+            return self();
+        }
+
         abstract Car build();
 
         protected abstract T self();
