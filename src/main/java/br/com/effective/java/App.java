@@ -25,9 +25,11 @@ public class App {
         System.out.println(cocaCola);
         Ford fiesta = new Ford.Builder(Ford.Color.BLACK).withName("Fiesta").addType(Car.Type.SUV).build();
         Ford fiestaSedan = new Ford.Builder(Ford.Color.BLACK).withName("Fiesta Sedan").addType(Car.Type.SEDAN).build();
+        br.com.effective.java.item2.telescoping.NutritionFacts bread = new br.com.effective.java.item2.telescoping.NutritionFacts(240, 8, 120);
 
         System.out.println(fiesta);
         System.out.println(fiestaSedan);
+        System.out.println(bread);
     }
 
 }

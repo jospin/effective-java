@@ -2,6 +2,11 @@ package br.com.effective.java.item2.hierarchical;
 
 import java.util.Objects;
 
+/**
+ * @author Lucien Carbonare Jospin
+ * @since 08/2021
+ * @param Color color
+ */
 public class Ford extends Car{
 
     public enum Color { YELLOW, RED, BLACK, GRAY }
