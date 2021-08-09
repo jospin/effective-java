@@ -1,6 +1,8 @@
 package br.com.effective.java.cap2;
 
 import br.com.effective.java.cap2.Item4.NonInstantiable;
+import br.com.effective.java.cap2.Item5.Lexicon;
+import br.com.effective.java.cap2.Item5.SpellChecker;
 import br.com.effective.java.cap2.item1.Item1;
 import br.com.effective.java.cap2.item2.NutritionFacts;
 import br.com.effective.java.cap2.item2.hierarchical.Car;
@@ -17,6 +19,13 @@ public class App {
         runItem2();
         runItem3();
         runItem4();
+        runItem5();
+    }
+
+    private static void runItem5() {
+        Lexicon lexicon = new Lexicon();
+        SpellChecker spellChecker = new SpellChecker(lexicon);
+        spellChecker.callMethod();
     }
 
     private static void runItem4() {
