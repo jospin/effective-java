@@ -1,4 +1,4 @@
-package br.com.effective.java.item2.hierarchical;
+package br.com.effective.java.cap2.item2.hierarchical;
 
 import java.util.Objects;
 

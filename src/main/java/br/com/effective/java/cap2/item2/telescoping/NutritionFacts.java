@@ -1,4 +1,4 @@
-package br.com.effective.java.item2.telescoping;
+package br.com.effective.java.cap2.item2.telescoping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

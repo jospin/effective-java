@@ -1,4 +1,4 @@
-package br.com.effective.java.item1;
+package br.com.effective.java.cap2.item1;
 
 import java.math.BigInteger;
 import java.util.HashSet;
