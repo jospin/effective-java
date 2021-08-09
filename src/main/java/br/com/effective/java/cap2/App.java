@@ -1,5 +1,6 @@
 package br.com.effective.java.cap2;
 
+import br.com.effective.java.cap2.Item4.NonInstantiable;
 import br.com.effective.java.cap2.item1.Item1;
 import br.com.effective.java.cap2.item2.NutritionFacts;
 import br.com.effective.java.cap2.item2.hierarchical.Car;
@@ -15,6 +16,11 @@ public class App {
         runItem1();
         runItem2();
         runItem3();
+        runItem4();
+    }
+
+    private static void runItem4() {
+        NonInstantiable.test();
     }
 
     private static void runItem3() {

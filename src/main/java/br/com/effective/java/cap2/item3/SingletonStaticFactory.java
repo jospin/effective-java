@@ -1,5 +1,7 @@
 package br.com.effective.java.cap2.item3;
 
+import br.com.effective.java.cap2.Item4.NonInstantiable;
+
 /**
  * Singleton with static factory
  * This code would normally appear outside the class
