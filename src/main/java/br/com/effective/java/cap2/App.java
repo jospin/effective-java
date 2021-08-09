@@ -10,6 +10,8 @@ import br.com.effective.java.cap2.item2.hierarchical.Ford;
 import br.com.effective.java.cap2.item3.SingletonEnumType;
 import br.com.effective.java.cap2.item3.SingletonField;
 import br.com.effective.java.cap2.item3.SingletonStaticFactory;
+import br.com.effective.java.cap2.item6.RomanNumerals;
+import br.com.effective.java.cap2.item6.Sum;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class App {
@@ -20,6 +22,55 @@ public class App {
         runItem3();
         runItem4();
         runItem5();
+        runItem6();
+    }
+
+    private static void runItem6() {
+        int numSets = Integer.parseInt("1");
+        int numReps = Integer.parseInt("1");
+        boolean b = false;
+
+        for (int i = 0; i < numSets; i++) {
+            long start = System.nanoTime();
+            for (int j = 0; j < numReps; j++) {
+                b ^= RomanNumerals.isRomanNumeralFast("MCMLXXVI");  // Change Slow to Fast to see performance difference
+            }
+            long end = System.nanoTime();
+            System.out.println(((end - start) / (1_000. * numReps)) + " μs.");
+        }
+
+        for (int i = 0; i < numSets; i++) {
+            long start = System.nanoTime();
+            for (int j = 0; j < numReps; j++) {
+                b ^= RomanNumerals.isRomanNumeralSlow("MCMLXXVI");  // Change Slow to Fast to see performance difference
+            }
+            long end = System.nanoTime();
+            System.out.println(((end - start) / (1_000. * numReps)) + " μs.");
+        }
+
+         // Prevents VM from optimizing away everything.
+        if (!b)
+            System.out.println();
+
+        long x = 0;
+
+        for (int i = 0; i < numSets; i++) {
+            long start = System.nanoTime();
+            x += Sum.slowSum();
+            long end = System.nanoTime();
+            System.out.println((end - start) / 1_000_000. + " ms.");
+        }
+        x = 0;
+        for (int i = 0; i < numSets; i++) {
+            long start = System.nanoTime();
+            x += Sum.fastSum();
+            long end = System.nanoTime();
+            System.out.println((end - start) / 1_000_000. + " ms.");
+        }
+
+        // Prevents VM from optimizing away everything.
+        if (x == 42)
+            System.out.println();
     }
 
     private static void runItem5() {
