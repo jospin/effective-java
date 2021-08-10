@@ -3,6 +3,7 @@ package br.com.effective.java.cap2;
 import br.com.effective.java.cap2.Item4.NonInstantiable;
 import br.com.effective.java.cap2.Item5.Lexicon;
 import br.com.effective.java.cap2.Item5.SpellChecker;
+import br.com.effective.java.cap2.Item9.TryWithResourceWithCatchClause;
 import br.com.effective.java.cap2.item1.Item1;
 import br.com.effective.java.cap2.item2.NutritionFacts;
 import br.com.effective.java.cap2.item2.hierarchical.Car;
@@ -15,6 +16,8 @@ import br.com.effective.java.cap2.item6.Sum;
 import br.com.effective.java.cap2.item8.Room;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.sql.Connection;
+
 public class App {
 
     public static void main(String[] args) throws Exception {
@@ -25,6 +28,11 @@ public class App {
         runItem5();
         runItem6();
         runItem8();
+        runItem9();
+    }
+
+    private static void runItem9() {
+        System.out.println(TryWithResourceWithCatchClause.firstLineOfFile("/", "Toppy McTopFace"));
     }
 
     private static void runItem8() throws Exception{
@@ -40,7 +48,7 @@ public class App {
 
     private static void teenager() {
         new Room(1000); // not do this
-        System.out.println("Goodbye" );
+        System.out.println("Goodbye");
         System.gc(); //there’s no guarantee that you’ll see the same behavior on your machine
     }
 

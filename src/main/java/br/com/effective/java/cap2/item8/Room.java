@@ -9,7 +9,7 @@ import java.lang.ref.Cleaner;
  * @author Lucien Jospin
  *
  */
-public class Room implements AutoCloseable{
+public class Room implements AutoCloseable {
 
     // An autocloseable class using a cleaner as a safety net
     private static final Cleaner cleaner = Cleaner.create();
