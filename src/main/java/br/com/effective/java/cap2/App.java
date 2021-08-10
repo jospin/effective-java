@@ -12,17 +12,36 @@ import br.com.effective.java.cap2.item3.SingletonField;
 import br.com.effective.java.cap2.item3.SingletonStaticFactory;
 import br.com.effective.java.cap2.item6.RomanNumerals;
 import br.com.effective.java.cap2.item6.Sum;
+import br.com.effective.java.cap2.item8.Room;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class App {
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws Exception {
         runItem1();
         runItem2();
         runItem3();
         runItem4();
         runItem5();
         runItem6();
+        runItem8();
+    }
+
+    private static void runItem8() throws Exception{
+        adult();
+        teenager();
+    }
+
+    private static void adult() throws Exception{
+        try (Room adult = new Room(10)) {
+            System.out.println("Goodbye" );
+        }
+    }
+
+    private static void teenager() {
+        new Room(1000); // not do this
+        System.out.println("Goodbye" );
+        System.gc(); //there’s no guarantee that you’ll see the same behavior on your machine
     }
 
     private static void runItem6() {
