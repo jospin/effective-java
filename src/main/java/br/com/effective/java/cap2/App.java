@@ -16,7 +16,6 @@ import br.com.effective.java.cap2.item6.Sum;
 import br.com.effective.java.cap2.item8.Room;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.sql.Connection;
 
 public class App {
 
