@@ -16,6 +16,16 @@ public class App {
     private static void tunItem10() {
         symmetry();
         transitivity();
+        solvedWithComposition();
+    }
+
+    private static void solvedWithComposition() {
+        // Second equals function violates transitivity
+        br.com.effective.java.cap3.item10.composition.ColorPoint p1 = new br.com.effective.java.cap3.item10.composition.ColorPoint(1, 2, Color.BLUE);
+        Point p2 = new Point(1, 2);
+        br.com.effective.java.cap3.item10.composition.ColorPoint p3 = new br.com.effective.java.cap3.item10.composition.ColorPoint(1, 2, Color.BLUE);
+        System.out.printf("%s %s %s%n",
+                p1.equals(p2), p2.equals(p3), p1.equals(p3));
     }
 
     private static void transitivity() {
