@@ -14,7 +14,8 @@ import java.util.Objects;
  * @author Lucien Jospin
  */
 public class PhoneNumber {
-    private final short areaCode, prefix, lineNum;
+    private final int areaCode, prefix, lineNum;
+
     // hashCode method with lazily initialized cached hash code
     private int hashCode; // Automatically initialized to 0
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -23,10 +24,10 @@ public class PhoneNumber {
         this.lineNum  = rangeCheck(lineNum, 9999, "line num");
     }
 
-    private static short rangeCheck(int val, int max, String arg) {
+    private static int rangeCheck(int val, int max, String arg) {
         if (val < 0 || val > max)
             throw new IllegalArgumentException(arg + ": " + val);
-        return (short) val;
+        return val;
     }
 
     @Override
@@ -42,15 +43,15 @@ public class PhoneNumber {
 
     /**
      * Hash code on Effective Java
-     * @return int
+     * @return int hash
      */
     @Override
     public int hashCode() {
         int result = hashCode;
         if (result == 0) {
-            result = Short.hashCode(areaCode);
-            result = result * 31 + Short.hashCode(prefix);
-            result = result * 31 + Short.hashCode(lineNum);
+            result = Integer.hashCode(areaCode);
+            result = result * 31 + Integer.hashCode(prefix);
+            result = result * 31 + Integer.hashCode(lineNum);
             hashCode = result;
         }
         return result;
@@ -60,10 +61,25 @@ public class PhoneNumber {
     /**
      * hashCode to intelijj
      * One-line hashCode method - mediocre performance
-     * @return
+     * @return hash
      */
 //    @Override
 //    public int hashCode() {
 //        return Objects.hash(areaCode, prefix, lineNum);
 //    }
+
+    /**
+     * Returns the string representation of this phone number.
+     * The string consists of twelve characters whose format is
+     * "XXX-YYYYY-ZZZZ", where XXX is the area code, YYY is the
+     * prefix, and ZZZZ is the line number. Each of the capital
+     * letters represents a single decimal digit.
+     * If any of the three parts of this phone number is too small
+     * to fill up its field, the field is padded with
+     * @return string format
+     */
+    @Override public String toString() {
+        return String.format("%03d-%05d-%04d",
+                areaCode, prefix, lineNum);
+    }
 }

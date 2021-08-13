@@ -26,24 +26,30 @@ class PhoneNumberTest {
 
     @Test
     void prefixNotEquals() {
-        PhoneNumber p1 = new PhoneNumber(011, 97387, 5066);
-        PhoneNumber p2 = new PhoneNumber(011, 97388, 5066);
+        PhoneNumber p1 = new PhoneNumber(11, 97387, 5066);
+        PhoneNumber p2 = new PhoneNumber(11, 97388, 5066);
+        System.out.println(p1);
+        System.out.println(p2);
         Assertions.assertNotEquals(p1, p2);
         Assertions.assertNotEquals(p2, p1);
     }
 
     @Test
     void areaNotEquals() {
-        PhoneNumber p1 = new PhoneNumber(011, 97387, 5066);
-        PhoneNumber p2 = new PhoneNumber(012, 97387, 5066);
+        PhoneNumber p1 = new PhoneNumber(11, 97387, 5066);
+        PhoneNumber p2 = new PhoneNumber(12, 97387, 5066);
+        System.out.println(p1);
+        System.out.println(p2);
         Assertions.assertNotEquals(p1, p2);
         Assertions.assertNotEquals(p2, p1);
     }
 
     @Test
     void sameObjectsHasSameHash() {
-        PhoneNumber p1 = new PhoneNumber(011, 97387, 5066);
-        PhoneNumber p2 = new PhoneNumber(011, 97387, 5066);
+        PhoneNumber p1 = new PhoneNumber(11, 97387, 5066);
+        PhoneNumber p2 = new PhoneNumber(11, 97387, 5066);
+        System.out.println(p1);
+        System.out.println(p2);
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(p1, "Jenny");
         Assertions.assertEquals("Jenny", m.get(p2));
@@ -52,8 +58,10 @@ class PhoneNumberTest {
 
     @Test
     void differentObjectsHasDifferentHash() {
-        PhoneNumber p1 = new PhoneNumber(011, 97387, 5066);
-        PhoneNumber p2 = new PhoneNumber(012, 97388, 5067);
+        PhoneNumber p1 = new PhoneNumber(11, 97387, 5066);
+        PhoneNumber p2 = new PhoneNumber(12, 97388, 5067);
+        System.out.println(p1);
+        System.out.println(p2);
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(p1, "Jenny");
         m.put(p2, "Jenny2");
@@ -62,6 +70,13 @@ class PhoneNumberTest {
         Assertions.assertEquals("Jenny2", m.get(p2));
         Assertions.assertEquals("Jenny", m.get(p1));
 
+    }
+
+    @Test
+    void toStringFormat() {
+        PhoneNumber p1 = new PhoneNumber(11, 97387, 5066);
+        System.out.println(p1);
+        Assertions.assertEquals("011-97387-5066", p1.toString());
     }
 
 }
