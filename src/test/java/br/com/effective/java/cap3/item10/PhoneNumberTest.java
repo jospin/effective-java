@@ -47,6 +47,7 @@ class PhoneNumberTest {
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(p1, "Jenny");
         Assertions.assertEquals("Jenny", m.get(p2));
+        Assertions.assertEquals("Jenny", m.get(p1));
     }
 
     @Test
@@ -55,7 +56,12 @@ class PhoneNumberTest {
         PhoneNumber p2 = new PhoneNumber(012, 97388, 5067);
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(p1, "Jenny");
+        m.put(p2, "Jenny2");
         Assertions.assertNotEquals("Jenny", m.get(p2));
+        Assertions.assertNotEquals("Jenny2", m.get(p1));
+        Assertions.assertEquals("Jenny2", m.get(p2));
+        Assertions.assertEquals("Jenny", m.get(p1));
+
     }
 
 }
