@@ -39,8 +39,25 @@ public class PhoneNumber {
                 && pn.areaCode == areaCode;
     }
 
+    /**
+     * Hash code on Effective Java
+     * @return int
+     */
     @Override
     public int hashCode() {
-        return Objects.hash(areaCode, prefix, lineNum);
+        int result = Short.hashCode(areaCode);
+        result = result * 31 + Short.hashCode(prefix);
+        result = result * 31 + Short.hashCode(lineNum);
+        return result;
     }
+
+
+    /**
+     * hashCode to intelijj
+     * @return
+     */
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(areaCode, prefix, lineNum);
+//    }
 }
