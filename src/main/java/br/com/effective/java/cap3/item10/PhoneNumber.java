@@ -15,7 +15,8 @@ import java.util.Objects;
  */
 public class PhoneNumber {
     private final short areaCode, prefix, lineNum;
-
+    // hashCode method with lazily initialized cached hash code
+    private int hashCode; // Automatically initialized to 0
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
         this.areaCode = rangeCheck(areaCode, 999, "area code");
         this.prefix   = rangeCheck(prefix,   99999, "prefix");
@@ -45,15 +46,20 @@ public class PhoneNumber {
      */
     @Override
     public int hashCode() {
-        int result = Short.hashCode(areaCode);
-        result = result * 31 + Short.hashCode(prefix);
-        result = result * 31 + Short.hashCode(lineNum);
+        int result = hashCode;
+        if (result == 0) {
+            result = Short.hashCode(areaCode);
+            result = result * 31 + Short.hashCode(prefix);
+            result = result * 31 + Short.hashCode(lineNum);
+            hashCode = result;
+        }
         return result;
     }
 
 
     /**
      * hashCode to intelijj
+     * One-line hashCode method - mediocre performance
      * @return
      */
 //    @Override
